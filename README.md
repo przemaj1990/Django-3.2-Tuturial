@@ -41,4 +41,20 @@
     python -m django startproject trydjango (create project in dir /trydjango )
     python manage.py
 
+# 7 - Setup Django on VS Code - Python & Django 3.2 Tutorial Series
+# 8 - Databases & Web Pages - Python & Django 3.2 Tutorial Series
+# 9 - Open, Activate, & Run Dev Server - Python & Django 3.2 Tutorial Series
 
+    - on mac:
+    python3.8 -m venv .
+    source bin/activate
+    - repete steps from #5 & then:
+    python3.8 manage.py runserver
+    python3.8 manage.py runserver -d (run in a background)
+    python manage.py runserver 10.0.85.136:8000
+
+# 10 - Your first web page - Python & Django 3.2 Tutorial Series
+# 11 - Handling a url route - Python & Django 3.2 Tutorial Series
+
+    - add views.py and first def to render webpage
+    - add 'home/' in urls.py
