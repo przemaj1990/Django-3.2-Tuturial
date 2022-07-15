@@ -64,3 +64,13 @@
     - start app is more like start part of app than app itself
     python3.8 manage.py startapp articles
     - add base model
+
+# 14 - INSTALLED_APPS & Migrations - Python & Django 3.2 Tutorial Series
+    python3.8 manage.py migrate
+    - it will create 'db.sqlite3' database
+    - check {projectname}/settings.py & add new created app into INSTALLED_APPS
+    - to make django know about new models we need to(run this every time when you change anything):
+    python3.8 manage.py makemigrations
+    python3.8 manage.py migrate
+    - in {projectname}/{app}/migrations you can find each migration and what was done
+    
