@@ -58,3 +58,6 @@
 
     - add views.py and first def to render webpage
     - add 'home/' in urls.py
+
+# 12 - Enriching a View with Data - Python & Django 3.2 Tutorial Series
+# 13 - Our first database model - Python & Django 3.2 Tutorial Series
