@@ -12,3 +12,4 @@ def simple_response(request):
     # take request and retun respone 
     return HttpResponse(html_strinh)
 
+# django template:

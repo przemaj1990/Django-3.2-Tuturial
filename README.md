@@ -61,3 +61,6 @@
 
 # 12 - Enriching a View with Data - Python & Django 3.2 Tutorial Series
 # 13 - Our first database model - Python & Django 3.2 Tutorial Series
+    - start app is more like start part of app than app itself
+    python3.8 manage.py startapp articles
+    - add base model
