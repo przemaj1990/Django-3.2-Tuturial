@@ -1,7 +1,7 @@
 # tu render html web page
 from django.http import HttpResponse
 import random
-
+from articles.models import Article
 # simple response:
 def simple_response(request):
     name = 'Przemek'
@@ -13,3 +13,11 @@ def simple_response(request):
     return HttpResponse(html_strinh)
 
 # django template:
+def using_model(request):
+    # get data from databse
+    articles_obj = Article.objects.get(id=4)
+    # django template
+    html_strinh1 = f"""<h1> {articles_obj.title} (id: {articles_obj.id}) </h1>"""
+    html_strinh2 = f"""<p1> {articles_obj.content} </p1>"""
+    html_strinh = html_strinh1 + html_strinh2
+    return HttpResponse(html_strinh)

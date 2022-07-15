@@ -97,3 +97,7 @@
     'First test article'
     Ctrl + D to close
 
+# 16 - Rendering Data from our Database in a View - Python & Django 3.2 Tutorial Series
+    use data from model/database inside django template
+    def using_model:
+    articles_obj = Article.objects.get(id=4)
