@@ -74,3 +74,26 @@
     python3.8 manage.py migrate
     - in {projectname}/{app}/migrations you can find each migration and what was done
     
+# 15 - Writing & Reading data in Python Shell - Python & Django 3.2 Tutorial Series
+    pip install dataclasses
+    python3.8 manage.py shell
+    - in django shell we can access already created obj like articles
+    >>> from articles.models import Article
+    >>> obj = Article()
+    >>> obj.title
+    ''
+    >>> obj.save()
+    >>> obj = Article(title='First test article', content='hello')
+    >>> obj.save()
+    >>> obj.title
+    'First test article'
+    >>> obj2 = Article(title='Second test article', content='hello')
+    >>> obj2.save()
+    >>> obj3 = Article.objects.create(title='third test article', content='hello')
+    >>> obj3.title
+    'third test article'
+    >>> a = Article.objects.get(id=2)
+    >>> a.title
+    'First test article'
+    Ctrl + D to close
+
