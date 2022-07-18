@@ -137,3 +137,7 @@
 
 # 19 - Dynamic URL Routing - Python & Django 3.2 Tutorial Series
     - dynamic url + detail view base on id
+
+# 20 - Super Users, Staff Users & the Django Admin - Python & Django 3.2 Tutorial Series
+    - Create super user:
+    python3.8 manage.py createsuperuser (pm1990/default password)
