@@ -134,3 +134,6 @@
     - Inside we can use {{ x.title }} to get specific value from queryset
     - we can use {% if x.title %}{% endif %} to check if value exist and then render it.
     - we can create link to object by addidng <a href='/articles/{{x.id}}/'>
+
+# 19 - Dynamic URL Routing - Python & Django 3.2 Tutorial Series
+    - dynamic url + detail view base on id

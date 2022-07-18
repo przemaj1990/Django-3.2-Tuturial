@@ -3,6 +3,8 @@ from django.http import HttpResponse
 import random
 from articles.models import Article
 from django.template.loader import render_to_string, get_template
+ 
+
 # simple response:
 def simple_response(request):
     name = 'Przemek'
@@ -81,3 +83,4 @@ def list_data2(request):
         "content": articles_obj.content }
     html_strinh = render_to_string("using_template-view.html", context=context_dict)
     return HttpResponse(html_strinh)
+
