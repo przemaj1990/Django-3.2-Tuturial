@@ -34,6 +34,7 @@ def using_format(request):
     html_strinh1 = """<h1> Title: {title} id: {id} </h1><p1>{content}</p1> """.format(**context_dict)
     return HttpResponse(html_strinh1)
 
+# render_to_string
 def using_template1(request):
     articles_obj = Article.objects.get(id=4)
     context_dict = {
@@ -43,12 +44,40 @@ def using_template1(request):
     html_strinh = render_to_string("using_template-view.html", context=context_dict)
     return HttpResponse(html_strinh)
 
+# get_tempalte
 def using_template2(request):
     articles_obj = Article.objects.get(id=3)
     context_dict = {
+        "object": articles_obj,
         "title": articles_obj.title,
         "id": articles_obj.id,
         "content": articles_obj.content }
     template = get_template("using_template-view.html")
     template_str = template.render(context=context_dict)
     return HttpResponse(template_str)
+
+# listing data from list
+def list_data1(request):
+    articles_obj = Article.objects.get(id=3)
+    my_list = [1,2,3,4,5,6,7,109,209,309,409,102434]
+    context_dict = {
+        "my_list": my_list,
+        "object": articles_obj,
+        "title": articles_obj.title,
+        "id": articles_obj.id,
+        "content": articles_obj.content }
+    html_strinh = render_to_string("using_template-view.html", context=context_dict)
+    return HttpResponse(html_strinh)
+
+# list data from database
+def list_data2(request):
+    articles_obj = Article.objects.get(id=3)
+    articles_queryset = Article.objects.all()
+    context_dict = {
+        "my_list": articles_queryset,
+        "object": articles_obj,
+        "title": articles_obj.title,
+        "id": articles_obj.id,
+        "content": articles_obj.content }
+    html_strinh = render_to_string("using_template-view.html", context=context_dict)
+    return HttpResponse(html_strinh)

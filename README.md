@@ -128,3 +128,9 @@
          {% endblock content %}
         to add our content inside this base.html. this way we connect 2 tempaltes in one website. 
 
+# 18 - Listing Data in Views & Templates - Python & Django 3.2 Tutorial Series
+    - We can use for in html using:
+        {% for x in my_list %} {{ x }} {% endfor %}
+    - Inside we can use {{ x.title }} to get specific value from queryset
+    - we can use {% if x.title %}{% endif %} to check if value exist and then render it.
+    - we can create link to object by addidng <a href='/articles/{{x.id}}/'>

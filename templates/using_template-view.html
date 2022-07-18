@@ -3,4 +3,14 @@
 {% block content %}
 <h1>Article title: {{title}}  and id: {{id}}</h1>
     <p1>Content: {{content}} </p1>
+    
+    <ul>{% for x in my_list %}
+        {% if x.title %}
+        <li>
+            <a href='/articles/{{x.id}}/'>{{ x.title }}</a>
+            {{ x.content }}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
 {% endblock content %}
