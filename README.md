@@ -101,3 +101,30 @@
     use data from model/database inside django template
     def using_model:
     articles_obj = Article.objects.get(id=4)
+
+# 17 - Django Templates Basics - Python & Django 3.2 Tutorial Series
+    > If you would like to use folder with tempalte in django, you need to add it in settings.py
+        in TEMPLATES: 
+            'DIRS': ['/home/pm1990/Django-3.2-Tuturial/templates']
+        and this is most basic and incorrect way
+        you can add many of them and django will check them in order you choosed:
+            'DIRS': [
+                    '/home/pm1990/Django-3.2-Tuturial/templates',
+                    '/home/pm1990/Django-3.2-Tuturial/templates2'
+                    ],
+        but correct way is to add:
+            'DIRS': [
+                BASE_DIR / "templates"] <- this way we are not point your own system but more general one hierarchy
+    > Rednering template:
+        we cam use: from django.template.loader import render_to_string
+        to use django build in mechanism like that: 
+            html_strinh = render_to_string("using_template-view.html", context=context_dict)
+        and pass there template html file and context dict as well. 
+    - In template use double brackets: <p1>Content: {{content}} </p1
+    - Other way is to use get_template module (example def using_template2)
+    > Template inheritance:
+        at start of tempalte we use {% extends "base.html" %} to use specific base temaple and
+         {% block content %}
+         {% endblock content %}
+        to add our content inside this base.html. this way we connect 2 tempaltes in one website. 
+
