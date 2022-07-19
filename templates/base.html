@@ -8,12 +8,14 @@
             <h1><a href="/">Przemka zabawy z Django</a></h1>
         </div>
 
+        <!-- Base form for search -->
         <form action="/articles/">
             <input type='text' name='query'/>
             <input type='submit'/>
         </form>
 
         <div class="content container">
+            <!-- Here we will add detail.html content -->
             {% block content %}
             {% endblock content %}
         </div>

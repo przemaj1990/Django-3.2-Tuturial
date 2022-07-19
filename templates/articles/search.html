@@ -2,11 +2,12 @@
 
 {% block content %}
 
+<!-- check if object exist -->
 {% if object %}
 <h1>Detail View:</h1>
 <h1>Article title: {{object.title}}  and id: {{id}}</h1>
 
     <p1>Content: {{content}} </p1>
 
-    {% endif %}
+{% endif %}
 {% endblock content %}

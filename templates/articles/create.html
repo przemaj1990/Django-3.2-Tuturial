@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if not created %}
+<div style="margin-top:30px;">
+<form action="." method="POST">
+    {% csrf_token %}
+    <h3>Create Article</h3>
+    <div><input type='title' name='title' placeholder="Your Title:"/></div>
+    <div><textarea name='content' placeholder="Content od article:"></textarea></div>
+    <div><button type='submit'>Create new Article</button></div>
+</form>
+</div>
+{% else %}
+
+<p>You article was created</p>
+<a href='/articles/{{ object.id }}/'>{{ object.title }}</a>
+
+{% endif %}
+{% endblock content %}

@@ -155,4 +155,9 @@
     </form>
     that will use def article_search_view()
 
-# 
+# 23 - Basic HTML Form in Django - Python & Django 3.2 Tutorial Series
+    - @csrf_exempt - decorator in view def allow to avoide problem with csrf token
+    - or we can add {% csfr_token %} in create.html
+    - base method to add data: Article.objects.create(title=title, content=content)
+    using POST request
+    

@@ -11,6 +11,7 @@ def article_detail_view(request, id=None):
     # render allow us to paste request, template and context
     return render(request, "articles/detail.html", context=context)
 
+#base search:
 def article_search_view(request):
     #to print detail of request:
     # print(dir(request))
@@ -29,3 +30,18 @@ def article_search_view(request):
         "object": articles_obj,
         }
     return render(request, "articles/search.html", context=context)
+
+#create new article base:
+#@csrf_exempt - allow to avoide problem with ssrf token
+def article_create_view(request):
+    context = {}
+    # first method
+    if request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        articles_obj = Article.objects.create(title=title, content=content)
+        # we created object/new article and pass its data to template to use it in dynami url
+        context["object"] = articles_obj
+        context["created"] = True
+    # render allow us to paste request, template and context
+    return render(request, "articles/create.html", context=context)
