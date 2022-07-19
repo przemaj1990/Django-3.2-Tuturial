@@ -160,4 +160,11 @@
     - or we can add {% csfr_token %} in create.html
     - base method to add data: Article.objects.create(title=title, content=content)
     using POST request
-    
+
+# 24 - Create a Login View to Authenticate Users - Python & Django 3.2 Tutorial Series
+    > authentication methods:
+    python3.8 manage.py startapp accounts
+    - we add login view
+    we will use buildin: from django.contrib.auth import authenticate, login
+    user = authenticate(request, username=username, password=password) <- to check if username&password are correct
+    login(request, user) <- to login user into admin portal

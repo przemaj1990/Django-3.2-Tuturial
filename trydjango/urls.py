@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import simple_response, using_model, using_format, using_template1, using_template2, list_data1, list_data2
-from articles import views
+from articles.views import (
+    article_search_view, 
+    article_detail_view, 
+    article_create_view
+    )
+from accounts.views import (
+    login_view
+    )
 
 urlpatterns = [
+    #base work:
     path('simple_response/', simple_response),
     path('using_model/', using_model),
     path('using_format/', using_format),
@@ -26,8 +34,11 @@ urlpatterns = [
     path('using_template2/', using_template2),
     path('list_data1/', list_data1),
     path('list_data2/', list_data2),
-    path('articles/', views.article_search_view),
-    path('articles/<int:id>/', views.article_detail_view),
-    path('articles/create/', views.article_create_view),
+    #work on specific app articles:
+    path('articles/', article_search_view),
+    path('articles/<int:id>/', article_detail_view),
+    path('articles/create/', article_create_view),
+    #login mechanism:
+    path('login/', login_view),
     path('admin/', admin.site.urls),
 ]
