@@ -146,3 +146,13 @@
     - to manage specific model from admin view you need to add to app_name/admin.py
         admin.site.register(Article)
     - we can add class to display title in admin view insted of object(id) and search using build in mechanism
+
+# 22 - Search Form & Request Data - Python & Django 3.2 Tutorial Series
+    > Create basic search form:
+     <form action="/articles/">
+            <input type='text' name='query'/>
+            <input type='submit'/>
+    </form>
+    that will use def article_search_view()
+
+# 

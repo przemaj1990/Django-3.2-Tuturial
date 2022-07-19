@@ -26,6 +26,7 @@ urlpatterns = [
     path('using_template2/', using_template2),
     path('list_data1/', list_data1),
     path('list_data2/', list_data2),
+    path('articles/', views.article_search_view),
     path('articles/<int:id>/', views.article_detail_view),
     path('admin/', admin.site.urls),
 ]
