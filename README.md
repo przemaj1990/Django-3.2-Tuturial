@@ -141,3 +141,8 @@
 # 20 - Super Users, Staff Users & the Django Admin - Python & Django 3.2 Tutorial Series
     - Create super user:
     python3.8 manage.py createsuperuser (pm1990/default password)
+
+# 21 - Register Model in the Admin - Python & Django 3.2 Tutorial Series
+    - to manage specific model from admin view you need to add to app_name/admin.py
+        admin.site.register(Article)
+    - we can add class to display title in admin view insted of object(id) and search using build in mechanism
