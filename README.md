@@ -168,3 +168,6 @@
     we will use buildin: from django.contrib.auth import authenticate, login
     user = authenticate(request, username=username, password=password) <- to check if username&password are correct
     login(request, user) <- to login user into admin portal
+
+ # 25 - Django Logout View - Python & Django 3.2 Tutorial Series
+    - logout mechanism using: from django.contrib.auth import logout

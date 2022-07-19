@@ -22,7 +22,8 @@ from articles.views import (
     article_create_view
     )
 from accounts.views import (
-    login_view
+    login_view,
+    logout_view,
     )
 
 urlpatterns = [
@@ -40,5 +41,6 @@ urlpatterns = [
     path('articles/create/', article_create_view),
     #login mechanism:
     path('login/', login_view),
+    path('logout/', logout_view),
     path('admin/', admin.site.urls),
 ]
