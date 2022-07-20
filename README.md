@@ -189,3 +189,6 @@
 
 # 28 - Model Form for Article Model - Python & Django 3.2 Tutorial Series
     - more clear usage of form 
+
+# 29 - Register a User via built in Model Form - Python & Django 3.2 Tutorial Series
+    > build registration view.
