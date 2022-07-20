@@ -186,3 +186,6 @@
     > creat article using django forms & add validation
     - we used: form.cleaned_data
     form.cleaned_data returns a dictionary of validated form input fields and their values, where string primary keys are returned as objects.
+
+# 28 - Model Form for Article Model - Python & Django 3.2 Tutorial Series
+    - more clear usage of form 

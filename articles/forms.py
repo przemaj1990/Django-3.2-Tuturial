@@ -1,6 +1,21 @@
 from django import forms
+from .models import Article
 
-class ArticleForm(forms.Form):
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content']
+    
+    def clean(self):
+        data = self.cleaned_data
+        title = data.get('title')
+        qs = Article.objects.all().filter(title__icontains=title)
+        if qs.exists():
+            self.add_error('title', 'Already exist')
+        return data
+   
+#standard form, old way
+class ArticleFormOld(forms.Form):
     title = forms.CharField()
     content = forms.CharField()
 
@@ -24,3 +39,4 @@ class ArticleForm(forms.Form):
         #     self.add_error('content', 'Office in content')
         #     raise forms.ValidationError('Office is not allowed')
         return cleaned_data
+
