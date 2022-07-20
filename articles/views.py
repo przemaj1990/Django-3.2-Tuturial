@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Article
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 #handling dynamic url & detail view
@@ -33,7 +35,11 @@ def article_search_view(request):
 
 #create new article base:
 #@csrf_exempt - allow to avoide problem with ssrf token
+@login_required #allow to ensure auth of user
 def article_create_view(request):
+    # simple method of auth(but is better to use decorator):
+    # if request.user.is_authenticate:
+    #     retunr redirect("/login")
     context = {}
     # first method
     if request.method == "POST":

@@ -28,6 +28,7 @@ from accounts.views import (
 
 urlpatterns = [
     #base work:
+    path('', list_data2), #usefull to have this home page
     path('simple_response/', simple_response),
     path('using_model/', using_model),
     path('using_format/', using_format),

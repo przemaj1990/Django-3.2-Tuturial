@@ -169,5 +169,17 @@
     user = authenticate(request, username=username, password=password) <- to check if username&password are correct
     login(request, user) <- to login user into admin portal
 
- # 25 - Django Logout View - Python & Django 3.2 Tutorial Series
+# 25 - Django Logout View - Python & Django 3.2 Tutorial Series
     - logout mechanism using: from django.contrib.auth import logout
+
+# 26 - Creating a User Required - Python & Django 3.2 Tutorial Series
+    > ensure that only log in users are able to edit/see anything, 
+    - simple method:
+    if request.user.is_authenticate:
+        retunr redirect("/login")
+    - but is better to use decorator from build in: from django,contrib.auth.decorator import login_required
+    @login_required
+    - it will redirect us to default website so we need to change this in settings.py:
+    LOGIN_URL = "/login/"
+
+
