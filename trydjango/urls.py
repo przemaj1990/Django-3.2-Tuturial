@@ -25,6 +25,7 @@ from articles.views import (
     article_create_view4,
     )
 from accounts.views import (
+    login_view_old,
     login_view,
     logout_view,
     register_view,
@@ -48,6 +49,7 @@ urlpatterns = [
     path('articles/create3/', article_create_view3),
     path('articles/create4/', article_create_view4),
     #login mechanism:
+    path('login_old/', login_view_old),
     path('login/', login_view),
     path('logout/', logout_view),
     path('register/', register_view),

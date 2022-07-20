@@ -192,3 +192,6 @@
 
 # 29 - Register a User via built in Model Form - Python & Django 3.2 Tutorial Series
     > build registration view.
+
+# 30 - Login via Django AuthenticationForm - Python & Django 3.2 Tutorial Series
+    > build in authentication form

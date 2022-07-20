@@ -11,9 +11,12 @@
             <p style="color:red">{{ error }}</p>
         {% endif %}
         {% csrf_token %}
-        <!-- for to login -->
-        <div><input type='text' name='username' placeholder="Your Username:"/></div>
-        <div><input type='password' name='password' placeholder="Your Password:"/></div>
+        <!-- for to login old one: -->
+            <!-- <div><input type='text' name='username' placeholder="Your Username:"/></div>
+            <div><input type='password' name='password' placeholder="Your Password:"/></div>
+            <div><button type='submit'>Login</button></div> -->
+        <!-- newone using form: -->
+        {{ form.as_p }}
         <div><button type='submit'>Login</button></div>
     </form>
         <p>Need account ? Please <a href='/register/'>Register</a></p>
