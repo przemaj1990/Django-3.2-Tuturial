@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Article
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import ArticleForm
 # Create your views here.
 
 #handling dynamic url & detail view
@@ -51,3 +52,41 @@ def article_create_view(request):
         context["created"] = True
     # render allow us to paste request, template and context
     return render(request, "articles/create.html", context=context)
+
+# create article using django forms
+@login_required
+def article_create_view2(request):
+    form = ArticleForm()
+    # print(dir(form))
+    context = {
+        "form": form
+    }
+    if request.method == "POST":
+        form = ArticleForm(request.POST)
+        context['form'] = form
+        if form.is_valid():
+            title = form.cleaned_data.get("title")
+            content = form.cleaned_data.get("content")
+            articles_obj = Article.objects.create(title=title, content=content)
+            # we created object/new article and pass its data to template to use it in dynami url
+            context["object"] = articles_obj
+            context["created"] = True
+    # render allow us to paste request, template and context
+    return render(request, "articles/create2.html", context=context)
+
+#clear version:
+@login_required
+def article_create_view3(request):
+    form = ArticleForm(request.POST or None)
+    context = {
+        "form": form
+    }
+    if form.is_valid():
+        title = form.cleaned_data.get("title")
+        content = form.cleaned_data.get("content")
+        articles_obj = Article.objects.create(title=title, content=content)
+        # we created object/new article and pass its data to template to use it in dynami url
+        context["object"] = articles_obj
+        context["created"] = True
+    # render allow us to paste request, template and context
+    return render(request, "articles/create2.html", context=context)

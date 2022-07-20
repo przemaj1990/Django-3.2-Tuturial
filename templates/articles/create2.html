@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if not created %}
+
+
+
+<div style="margin-top:30px;">
+    <form action="." method="POST">
+        <h3>Create Article</h3>
+        {% csrf_token %}
+        <!-- Manual form replaced after by generic one: -->
+            <!-- <div><input type='title' name='title' placeholder="Your Title:"/></div>
+            <div><textarea name='content' placeholder="Content od article:"></textarea></div> -->
+
+        <!-- use of form: -->
+        <!-- .as_p turn this for mas paragraf text -->
+            {{ form.as_p }}
+        <div><button type='submit'>Create new Article</button></div>
+    </form>
+</div>
+{% else %}
+
+<p>You article was created</p>
+<a href='/articles/{{ object.id }}/'>{{ object.title }}</a>
+
+{% endif %}
+{% endblock content %}

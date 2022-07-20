@@ -19,7 +19,9 @@ from .views import simple_response, using_model, using_format, using_template1, 
 from articles.views import (
     article_search_view, 
     article_detail_view, 
-    article_create_view
+    article_create_view,
+    article_create_view2,
+    article_create_view3,
     )
 from accounts.views import (
     login_view,
@@ -40,6 +42,8 @@ urlpatterns = [
     path('articles/', article_search_view),
     path('articles/<int:id>/', article_detail_view),
     path('articles/create/', article_create_view),
+    path('articles/create2/', article_create_view2),
+    path('articles/create3/', article_create_view3),
     #login mechanism:
     path('login/', login_view),
     path('logout/', logout_view),

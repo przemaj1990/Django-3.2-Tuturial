@@ -182,4 +182,7 @@
     - it will redirect us to default website so we need to change this in settings.py:
     LOGIN_URL = "/login/"
 
-
+# 27 - Basic Django Forms - Python & Django 3.2 Tutorial Series
+    > creat article using django forms & add validation
+    - we used: form.cleaned_data
+    form.cleaned_data returns a dictionary of validated form input fields and their values, where string primary keys are returned as objects.
