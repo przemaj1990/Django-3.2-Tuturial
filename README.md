@@ -195,3 +195,13 @@
 
 # 30 - Login via Django AuthenticationForm - Python & Django 3.2 Tutorial Series
     > build in authentication form
+
+# 31 - Environment Variables & dotenv - Python & Django 3.2 Tutorial Series
+    > how to switch settings like DEBUG depending if we are on prod or not
+      we will use envirment variable ( they will inject settings that we wont want to hardcoded)
+      like: DEBUG = os.environ.get('DEBUG')
+      create ".env" file in root directory of django project and put there variable like SECRETE_KEY
+      pip install django-dotenv
+      then add dotenv.read_dotenv() in manage.py
+    - we use .env for sensitive data and not share it
+    - ALLOWED_HOSTS - tell on what domain it is allow to run this django.
