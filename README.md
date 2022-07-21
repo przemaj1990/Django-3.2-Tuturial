@@ -211,5 +211,17 @@
 
 # 33 - Managing Code with Git & Github - Python & Django 3.2 Tutorial Series
     https://www.codingforentrepreneurs.com/blog/version-control-with-git-basics-for-try-django-32/
-    
+
+# 34 - Deploy Django to Digital Ocean App Platform - Python & Django 3.2 Tutorial Series
+    - it will be good to prepare deploy process using cloud,docker,kubernetes.gitaction ect: https://www.codingforentrepreneurs.com/blog/django-github-actions/
+    - it is important to provision App-Level Environment Variables like:
+        DEBUG = 0
+        DISABLE_COLLECTSTATIC = 1
+        DJANGO_ALLOWED_HOST = .ondigitalocean.app
+        DJANGO_SECRET_KEY = create-a-secure-one (& choose encrypt)
+        DJANGO_SUPERUSER_EMAIL = your@email.com
+        DJANGO_SUPERUSER_USERNAME = yourusername
+        DJANGO_SUPERUSER_PASSWORD = create-a-secure-one (& choose encrypt)
+    - as they will be used during deploy
+
 
