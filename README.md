@@ -205,3 +205,6 @@
       then add dotenv.read_dotenv() in manage.py
     - we use .env for sensitive data and not share it
     - ALLOWED_HOSTS - tell on what domain it is allow to run this django.
+
+# 32 - Prepare Django for DigitalOcean App Platform - Python & Django 3.2 Tutorial Series
+    - to create secrete key: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
