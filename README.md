@@ -208,3 +208,8 @@
 
 # 32 - Prepare Django for DigitalOcean App Platform - Python & Django 3.2 Tutorial Series
     - to create secrete key: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+# 33 - Managing Code with Git & Github - Python & Django 3.2 Tutorial Series
+    https://www.codingforentrepreneurs.com/blog/version-control-with-git-basics-for-try-django-32/
+    
+
