@@ -226,7 +226,11 @@
 
 # Django & Github Actions
     https://www.codingforentrepreneurs.com/blog/django-github-actions/
-    (do zrobienia po testach)
+    during work i found:
+    Beginners Guide to GitHub Actions, Django and Docker
+    https://dev.to/ken_mwaura1/beginners-guide-to-github-actions-django-and-docker-2om6
+    Avoid Duplication! GitHub Actions Reusable Workflows
+    https://dev.to/n3wt0n/avoid-duplication-github-actions-reusable-workflows-3ae8
 
 # 35 - Automated Test Basics - Python & Django 3.2 Tutorial Series
     python3.8 manage.py test <- build in way to run test
