@@ -224,4 +224,10 @@
         DJANGO_SUPERUSER_PASSWORD = create-a-secure-one (& choose encrypt)
     - as they will be used during deploy
 
+# Django & Github Actions
+    https://www.codingforentrepreneurs.com/blog/django-github-actions/
+    (do zrobienia po testach)
 
+# 35 - Automated Test Basics - Python & Django 3.2 Tutorial Series
+    python3.8 manage.py test <- build in way to run test
+    in project_name/test.py we add tests
