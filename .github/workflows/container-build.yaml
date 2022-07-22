@@ -1,8 +1,14 @@
 name: Build Docker Container after Django Test
 
 on:
-  workflow_dispatch:
-
+  workflow_call:
+    inputs:
+      N:
+        description: Number of parallel jobs to run
+        type: number
+        required: true
+        default: 1
+        
 jobs:
   test_django:
     uses: przemaj1990/Django-3.2-Tuturial/.github/workflows/django-test.yaml@main
