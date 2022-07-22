@@ -87,34 +87,59 @@ DATABASES = {
     }
 }
 
-# Settings for Postgresql:
-POSTGRES_DB = os.environ.get("POSTGRES_DB") # databse name 
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD") #user password
-POSTGRES_USER = os.environ.get("POSTGRES_USER") # postgres user name 
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST") # databse host 
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT") # databse port 
+# Base project:
+# # Settings for Postgresql:
+# POSTGRES_DB = os.environ.get("POSTGRES_DB") # databse name 
+# POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD") #user password
+# POSTGRES_USER = os.environ.get("POSTGRES_USER") # postgres user name 
+# POSTGRES_HOST = os.environ.get("POSTGRES_HOST") # databse host 
+# POSTGRES_PORT = os.environ.get("POSTGRES_PORT") # databse port 
 
-# check env values:
-POSTGRES_READY = (
-    POSTGRES_DB is not None
-    and POSTGRES_PASSWORD is not None
-    and POSTGRES_USER is not None
-    and POSTGRES_HOST is not None
-    and POSTGRES_PORT is not None
-)
+# # check env values:
+# POSTGRES_READY = (
+#     POSTGRES_DB is not None
+#     and POSTGRES_PASSWORD is not None
+#     and POSTGRES_USER is not None
+#     and POSTGRES_HOST is not None
+#     and POSTGRES_PORT is not None
+# )
 
-if POSTGRES_READY:
+# if POSTGRES_READY:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.postgresql",
+#             "NAME": POSTGRES_DB,
+#             "USER": POSTGRES_USER,
+#             "PASSWORD": POSTGRES_PASSWORD,
+#             "HOST": POSTGRES_HOST,
+#             "PORT": POSTGRES_PORT,
+#         }
+#     }
+# for github & Action:
+DB_USERNAME=os.environ.get("DB_USERNAME")
+DB_PASSWORD=os.environ.get("DB_PASSWORD")
+DB_HOST=os.environ.get("DB_HOST")
+DB_PORT=os.environ.get("DB_PORT")
+DB_DATABASE=os.environ.get("DB_DATABASE")
+DB_IS_AVAIL = all([
+        DB_USERNAME, 
+        DB_PASSWORD, 
+        DB_HOST,
+        DB_PORT,
+        DB_DATABASE
+])
+
+if DB_IS_AVAIL:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": POSTGRES_DB,
-            "USER": POSTGRES_USER,
-            "PASSWORD": POSTGRES_PASSWORD,
-            "HOST": POSTGRES_HOST,
-            "PORT": POSTGRES_PORT,
+            "NAME": DB_DATABASE,
+            "USER": DB_USERNAME,
+            "PASSWORD": DB_PASSWORD,
+            "HOST": DB_HOST,
+            "PORT": DB_PORT,
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
