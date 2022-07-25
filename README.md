@@ -256,3 +256,5 @@
         >>> for obj in Article.objects.all():
     ...     obj.slug = None
     ...     obj.save()
+
+# 40 - Auto Generate Slugs with Recursion - Python & Django 3.2 Tutorial Series
