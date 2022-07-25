@@ -249,3 +249,10 @@
 
 # 38 - Django pre save & post save signals - Python & Django 3.2 Tutorial Series
     - how to obj before and after save
+
+# 39 - Django QuerySets & Lookups - Python & Django 3.2 Tutorial Series
+    - to make slugs unique and increment.
+    - mass change and run def:
+        >>> for obj in Article.objects.all():
+    ...     obj.slug = None
+    ...     obj.save()
