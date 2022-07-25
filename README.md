@@ -246,3 +246,6 @@
 
 # 37 - SlugField & Override Save Method - Python & Django 3.2 Tutorial Series
     - to change title from some crazy title to standard one like 'hello-world-two'
+
+# 38 - Django pre save & post save signals - Python & Django 3.2 Tutorial Series
+    - how to obj before and after save
