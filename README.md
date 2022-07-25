@@ -235,3 +235,14 @@
 # 35 - Automated Test Basics - Python & Django 3.2 Tutorial Series
     python3.8 manage.py test <- build in way to run test
     in project_name/test.py we add tests
+
+# 36 - Making Changes to Models & Fields - Python & Django 3.2 Tutorial Series
+    python3.8 manage.py makemigrations
+    python3.8 manage.py migrate
+    - arise problem becouse there are already existing entry and we need to specifiy if 
+      we would like to set default or allow null.
+    - i used option 1 and manually setup entry using: timezone.now
+    - good to use default value, or null(in db can be empty value) or blank(in django form can be empty value)
+
+# 37 - SlugField & Override Save Method - Python & Django 3.2 Tutorial Series
+    - to change title from some crazy title to standard one like 'hello-world-two'
