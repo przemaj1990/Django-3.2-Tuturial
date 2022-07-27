@@ -18,7 +18,8 @@ from django.urls import path
 from .views import simple_response, using_model, using_format, using_template1, using_template2, list_data1, list_data2
 from articles.views import (
     article_search_view, 
-    article_detail_view, 
+    article_detail_view,
+    article_detail_view_slug, 
     article_create_view,
     article_create_view2,
     article_create_view3,
@@ -44,6 +45,7 @@ urlpatterns = [
     #work on specific app articles:
     path('articles/', article_search_view),
     path('articles/<int:id>/', article_detail_view),
+    path('articles/slug/<slug:slug>/', article_detail_view_slug),
     path('articles/create/', article_create_view),
     path('articles/create2/', article_create_view2),
     path('articles/create3/', article_create_view3),

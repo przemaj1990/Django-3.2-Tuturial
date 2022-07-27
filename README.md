@@ -265,3 +265,6 @@
     - test need to have their own databse for tests
 
 # 42 - Testing Article Model Part 2 - Python & Django 3.2 Tutorial Series
+
+# 43 - Slugs in Dynamic Urls - Python & Django 3.2 Tutorial Series
+    - use slug in dynamic path

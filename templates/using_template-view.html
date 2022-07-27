@@ -10,7 +10,10 @@
         <li>
             <!-- href to create dynami url -->
             <a href='/articles/{{x.id}}/'>{{ x.title }}</a>
-            {{ x.content }}
+            <p> content: {{ x.content }}</p>
+            <a href='/articles/slug/{{x.slug}}/'>slug: {{ x.title }}</a>
+            <p></p>
+            
         </li>
         {% endif %}
         {% endfor %}

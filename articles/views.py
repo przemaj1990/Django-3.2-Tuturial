@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 from .models import Article
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -8,6 +9,23 @@ from .forms import ArticleFormOld, ArticleForm
 #handling dynamic url & detail view
 def article_detail_view(request, id=None):
     articles_obj = Article.objects.get(id=id)
+    context = {
+        "object": articles_obj,
+        }
+    # render allow us to paste request, template and context
+    return render(request, "articles/detail.html", context=context)
+
+def article_detail_view_slug(request, slug=None):
+    articles_obj = None
+    if slug is not None:
+        try:
+            articles_obj = Article.objects.get(slug=slug)
+        except Article.DoesNotExist:
+            raise Http404
+        except Article.MultipleObjectsReturned:
+            articles_obj = Article.objects.filter(slug=slug).first()
+        except:
+            raise Http404
     context = {
         "object": articles_obj,
         }
