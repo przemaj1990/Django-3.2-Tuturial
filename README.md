@@ -268,3 +268,19 @@
 
 # 43 - Slugs in Dynamic Urls - Python & Django 3.2 Tutorial Series
     - use slug in dynamic path
+
+# 44 - get absolute url - Python & Django 3.2 Tutorial Series
+# 45 - Django URLs Reverse - Python & Django 3.2 Tutorial Series
+
+    - url base on object itself but not harcoded in template:
+    - add name in urls:
+    path('articles/slug/<slug:slug>/', article_detail_view_slug, name='article-detail'),
+    few aprouch in template:
+     <a href='{{ x.get_absolute_url }}'>{{ x.title }}</a>
+     <a href='{% url "article-detail" slug=x.slug %}'>url to slug</a>
+     <a href='{% url "article-create" %}'>create}</a>
+     <a href='/articles/{{x.id}}/'>{{ x.title }}</a>
+     <a href='/articles/slug/{{x.slug}}/'>slug: {{ x.title }}</a>
+    - then we can use this in view:
+    return redirect(articles_obj.get_absolute_url())
+    return redirect('article-detail', slug=articles_obj.slug)

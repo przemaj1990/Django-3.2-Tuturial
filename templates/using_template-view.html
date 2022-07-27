@@ -8,10 +8,13 @@
     <ul>{% for x in my_list %}
         {% if x.title %}
         <li>
-            <!-- href to create dynami url -->
-            <a href='/articles/{{x.id}}/'>{{ x.title }}</a>
+            <!-- href to create dynami url, replaced by absolute url -->
+            <!-- <a href='/articles/{{x.id}}/'>{{ x.title }}</a> -->
+            <!-- <a href='{% url "article-detail" slug=x.slug %}'>url to slug</a> -->
+            <a href='{{ x.get_absolute_url }}'>{{ x.title }}</a>
+            <!-- <a href='{% url "article-create" %}'>create}</a> -->
             <p> content: {{ x.content }}</p>
-            <a href='/articles/slug/{{x.slug}}/'>slug: {{ x.title }}</a>
+            <!-- <a href='/articles/slug/{{x.slug}}/'>slug: {{ x.title }}</a> -->
             <p></p>
             
         </li>

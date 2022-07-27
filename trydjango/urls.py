@@ -45,11 +45,11 @@ urlpatterns = [
     #work on specific app articles:
     path('articles/', article_search_view),
     path('articles/<int:id>/', article_detail_view),
-    path('articles/slug/<slug:slug>/', article_detail_view_slug),
+    path('articles/slug/<slug:slug>/', article_detail_view_slug, name='article-detail'),
     path('articles/create/', article_create_view),
     path('articles/create2/', article_create_view2),
     path('articles/create3/', article_create_view3),
-    path('articles/create4/', article_create_view4),
+    path('articles/create4/', article_create_view4, name='article-create'),
     #login mechanism:
     path('login_old/', login_view_old),
     path('login/', login_view),

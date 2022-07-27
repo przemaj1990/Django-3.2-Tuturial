@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.db.models.signals import pre_save, post_save
 from .utils import sluggify_instance_title
+from django.urls import reverse
 
 # Create your models here.
 class Article(models.Model):
@@ -11,6 +12,10 @@ class Article(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     upadted = models.DateTimeField(auto_now=True)
     publish = models.DateField(auto_now_add=False, auto_now=False, default=timezone.now, null=True, blank=True)
+
+    def get_absolute_url(self):
+        # return f"/articles/{self.slug}"
+        return reverse('article-detail', kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         # right here we execute something like:
