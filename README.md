@@ -258,3 +258,8 @@
     ...     obj.save()
 
 # 40 - Auto Generate Slugs with Recursion - Python & Django 3.2 Tutorial Series
+    - still work on slug.
+
+# 41 - Testing Article Model Part 1 - Python & Django 3.2 Tutorial Series
+    python3.8 manage.py test articles <- to test only one app
+    - test need to have their own databse for tests
