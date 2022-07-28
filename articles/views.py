@@ -4,6 +4,7 @@ from .models import Article
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import ArticleFormOld, ArticleForm
+from django.db.models import Q
 # Create your views here.
 
 #handling dynamic url & detail view
@@ -39,16 +40,17 @@ def article_search_view(request):
     # print(request.GET)
     query_dict = request.GET #this is dict
     query = query_dict.get('query')
-    try:
-        query = int(query_dict.get('query'))
-    except:
-        query = None
-    articles_obj = None
+    qs = Article.objects.all
     if query is not None:
         #base search:
-        articles_obj = Article.objects.get(id=query)
+        # articles_obj = Article.objects.get(id=query)
+        #Q search:
+        lookups = Q(title__icontains=query) | Q(content__icontains=query)
+        qs = Article.objects.filter(lookups)
+        #simplest:
+        # qs = Article.objects.search(query)
     context = {
-        "object": articles_obj,
+        "object_list": qs,
         }
     return render(request, "articles/search.html", context=context)
 

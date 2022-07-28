@@ -3,11 +3,15 @@
 {% block content %}
 
 <!-- check if object exist -->
-{% if object %}
-<h1>Detail View:</h1>
-<h1>Article title: {{object.title}}  and id: {{id}}</h1>
-
-    <p1>Content: {{content}} </p1>
-
+{% if object_list %}
+<ol>
+    {% for object in object_list %}
+    <li>
+    <!-- <a href='/articles/slug/{{object.slug}}/'>slug: {{ object.slug }}</a> -->
+    <a href='{{ object.get_absolute_url }}'>{{ object.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
 {% endif %}
+
 {% endblock content %}

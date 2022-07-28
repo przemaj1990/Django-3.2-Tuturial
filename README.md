@@ -286,3 +286,4 @@
     return redirect('article-detail', slug=articles_obj.slug)
 
 # 46 - Complex Search using Django Q Lookups - Python & Django 3.2 Tutorial Series
+    - concept of complex querring
