@@ -34,24 +34,32 @@ def article_detail_view_slug(request, slug=None):
     return render(request, "articles/detail.html", context=context)
 
 #base search:
+# def article_search_view(request):
+#     #to print detail of request:
+#     # print(dir(request))
+#     # print(request.GET)
+#     query_dict = request.GET #this is dict
+#     query = query_dict.get('query')
+#     qs = Article.objects.all
+#     if query is not None:
+#         #base search:
+#         # articles_obj = Article.objects.get(id=query)
+#         #Q search:
+#         # lookups = Q(title__icontains=query) | Q(content__icontains=query)
+#         # qs = Article.objects.filter(lookups)
+#         #simplest:
+#         qs = Article.objects.search(query=query)
+#     context = {
+#         "object_list": qs,
+#         }
+#     return render(request, "articles/search.html", context=context)
+
 def article_search_view(request):
-    #to print detail of request:
-    # print(dir(request))
-    # print(request.GET)
-    query_dict = request.GET #this is dict
-    query = query_dict.get('query')
-    qs = Article.objects.all
-    if query is not None:
-        #base search:
-        # articles_obj = Article.objects.get(id=query)
-        #Q search:
-        lookups = Q(title__icontains=query) | Q(content__icontains=query)
-        qs = Article.objects.filter(lookups)
-        #simplest:
-        # qs = Article.objects.search(query)
+    query = request.GET.get('query')
+    qs = Article.objects.search(query=query)
     context = {
-        "object_list": qs,
-        }
+        "object_list": qs
+    }
     return render(request, "articles/search.html", context=context)
 
 #create new article base:

@@ -287,3 +287,9 @@
 
 # 46 - Complex Search using Django Q Lookups - Python & Django 3.2 Tutorial Series
     - concept of complex querring
+
+# 47 - Model Managers & Custom QuerySets for Search - Python & Django 3.2 Tutorial Series
+    - How to move search mechanism from view to modetel itself
+
+# 48 - Test Article Search Manager - Python & Django 3.2 Tutorial Series
+    - quick test of serch mechanism
