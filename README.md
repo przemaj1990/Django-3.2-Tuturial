@@ -284,3 +284,5 @@
     - then we can use this in view:
     return redirect(articles_obj.get_absolute_url())
     return redirect('article-detail', slug=articles_obj.slug)
+
+# 46 - Complex Search using Django Q Lookups - Python & Django 3.2 Tutorial Series
