@@ -310,3 +310,6 @@
     raw_id_fields = ['user']
     - everywhere (but not in model) we get user model using:
     User = get_user_model()
+
+# 52 - Understanding Relationships between Models via Tests - Python & Django 3.2 Tutorial Series
+    - test new model
