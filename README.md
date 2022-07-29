@@ -300,3 +300,13 @@
     or better:
     User = settings.AUTH_USER_MODEL
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+
+# 50 - User Generated Content & The Recipes App - Python & Django 3.2 Tutorial Series
+    
+     
+# 51 - Admin Inlines for Foreign Keys - Python & Django 3.2 Tutorial Series
+    - use: admin.StackedInline to get better view
+    - add lookup to search user or other object if there is a lot in admin.py:
+    raw_id_fields = ['user']
+    - everywhere (but not in model) we get user model using:
+    User = get_user_model()
