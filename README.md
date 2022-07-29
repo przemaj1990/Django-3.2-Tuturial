@@ -293,3 +293,10 @@
 
 # 48 - Test Article Search Manager - Python & Django 3.2 Tutorial Series
     - quick test of serch mechanism
+
+# 49 - Basic Data Connection with Foreign Keys - Python & Django 3.2 Tutorial Series
+    - to use build in django model user in other model:
+    user = models.ForeginKey("auth.User", null=True, blank=True, on_delete=models.SET_NULL)
+    or better:
+    User = settings.AUTH_USER_MODEL
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)

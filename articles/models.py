@@ -4,6 +4,9 @@ from django.db.models.signals import pre_save, post_save
 from .utils import sluggify_instance_title
 from django.urls import reverse
 from django.db.models import Q
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 class ArticleQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -34,6 +37,7 @@ class Article(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     upadted = models.DateTimeField(auto_now=True)
     publish = models.DateField(auto_now_add=False, auto_now=False, default=timezone.now, null=True, blank=True)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     objects=ArticleManager()
 
