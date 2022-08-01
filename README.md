@@ -317,3 +317,7 @@
 # 53 - Custom Validation for Unit Measurements - Python & Django 3.2 Tutorial Series
     - how to validate what unite users are enter
     - pint - module for measurements
+
+# 54 - Test Custom Model Validation Exception - Python & Django 3.2 Tutorial Series
+    - test validation method. 
+
