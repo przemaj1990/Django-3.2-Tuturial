@@ -321,3 +321,9 @@
 # 54 - Test Custom Model Validation Exception - Python & Django 3.2 Tutorial Series
     - test validation method. 
 
+# 55 - Auto Set Quantity as a Float - Python & Django 3.2 Tutorial Series
+    - unsupported operand type(s) for *: 'NoneType' and 'Quantity'
+      howtofix: becouse quantity_as_float can be None, so we need to add if inside as_mks and as_imperial
+
+# 56 - Use Python Pint to Convert Units - Python & Django 3.2 Tutorial Series
+    - in admin.py readonly_fields allow to show def as_imperial from model, not only filed like name. 

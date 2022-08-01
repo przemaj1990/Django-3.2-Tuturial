@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 from .validators import validate_unit
+from .utils import number_str_to_float
+import pint
 # Create your models here.
 
 """
@@ -29,11 +31,48 @@ class RecipeIngredients(models.Model):
     name = models.CharField(max_length=270)
     description = models.TextField(null=True, blank=True)
     quantity = models.CharField(max_length=50)
+    quantity_as_float = models.FloatField(blank=True, null=True)
     unit = models.CharField(max_length=50, validators=[validate_unit])
     directions = models.TextField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
+
+    #
+    def convert_to_system(self, system='mks'):
+        if self.quantity_as_float is None:
+            return None
+        ureg = pint.UnitRegistry(system=system)
+        measurement = self.quantity_as_float * ureg[self.unit]
+        print(measurement)
+         #.to_base_units() <- change value to desired one specifiec in 'system'
+        return measurement #.to_base_units()
+
+    def to_ounces(self):
+        m = self.convert_to_system()
+        return m.to('ounces')
+
+    def as_mks(self):
+        # meter, kilogram, second
+        measurement = self.convert_to_system(system='mks')
+        return measurement.to_base_units()
+
+    def as_imperial(self):
+        # miles, pounds, seconds
+        measurement = self.convert_to_system(system='imperial')
+        # measurement.to('pounds') <- to specific one.
+        return measurement.to_base_units()
+
+
+    # use validator inside save of model:
+    def save(self, *args, **kwargs):
+        qty = self.quantity
+        qty_as_float, qty_as_float_sucess = number_str_to_float(qty)
+        if qty_as_float_sucess:
+            self.quantity_as_float = qty_as_float
+        else: 
+            self.quantity_as_float = None
+        super().save(*args, **kwargs)
 
 # class RecipeImage():
 #     recipe = models.ForeignKey(Recipe)

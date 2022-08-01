@@ -19,9 +19,11 @@ User = get_user_model()
 # admin.site.register(User, UserAdmin)
 
 
+# this two class allow to add recipes and inside add few ingrediens:
 class RecipeIngredientsInline(admin.StackedInline):
     model = RecipeIngredients
     extra = 0
+    readonly_fields = ['quantity_as_float', 'as_mks', 'as_imperial', 'to_ounces']
     # fields = ['name', 'quantity', 'unit', 'directions']
 
 class RecipeAdmin(admin.ModelAdmin):

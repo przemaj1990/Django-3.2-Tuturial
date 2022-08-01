@@ -99,6 +99,6 @@ class RecipeTestCase(TestCase):
                 )
                 ingredient.full_clean()
 
-    # def test_quantity_as_float(self):
-    #     self.assertIsNotNone(self.recipe_ingredient_a.quantity_as_float)
-    #     self.assertIsNone(self.recipe_ingredient_b.quantity_as_float)
+    def test_quantity_as_float(self):
+        self.assertIsNotNone(self.recipe_ingredient_a.quantity_as_float)
+        self.assertIsNone(self.recipe_ingredient_b.quantity_as_float)
