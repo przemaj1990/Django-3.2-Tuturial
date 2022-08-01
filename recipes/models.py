@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from .validators import validate_unit
 # Create your models here.
 
 """
@@ -29,7 +29,7 @@ class RecipeIngredients(models.Model):
     name = models.CharField(max_length=270)
     description = models.TextField(null=True, blank=True)
     quantity = models.CharField(max_length=50)
-    unit = models.CharField(max_length=50)
+    unit = models.CharField(max_length=50, validators=[validate_unit])
     directions = models.TextField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

@@ -313,3 +313,7 @@
 
 # 52 - Understanding Relationships between Models via Tests - Python & Django 3.2 Tutorial Series
     - test new model
+
+# 53 - Custom Validation for Unit Measurements - Python & Django 3.2 Tutorial Series
+    - how to validate what unite users are enter
+    - pint - module for measurements
