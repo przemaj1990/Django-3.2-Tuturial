@@ -26,6 +26,10 @@ class Recipe(models.Model):
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
+    def get_absolute_url(self):
+        return "/panty/recipies/"
+        # return reverse("recipes:detail", kwargs={"id": self.id})
+
 class RecipeIngredients(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     name = models.CharField(max_length=270)
@@ -38,7 +42,9 @@ class RecipeIngredients(models.Model):
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
-    #
+    def get_absolute_url(self):
+        return self.recipe.get_absolute_url()
+
     def convert_to_system(self, system='mks'):
         if self.quantity_as_float is None:
             return None

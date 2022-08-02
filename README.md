@@ -327,3 +327,8 @@
 
 # 56 - Use Python Pint to Convert Units - Python & Django 3.2 Tutorial Series
     - in admin.py readonly_fields allow to show def as_imperial from model, not only filed like name. 
+
+# 57 - CRUD Views for Recipe Model - Python & Django 3.2 Tutorial Series
+    - CRUD - Create, Retrive, Update, Delete
+    - get_object_or_404 - quick version to validate if we receive one object
+    - 
