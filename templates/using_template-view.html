@@ -3,6 +3,8 @@
 {% block content %}
 <h1>Article title: {{title}}  and id: {{id}}</h1>
     <p1>Content: {{content}} </p1>
+    <a href='{% url "articles:create" %}'>Create Article</a>
+    <a href='{% url "articles:detail" slug="hello-world" %}'>Hello world article</a>   
     
     <!-- base for iteration -->
     <ul>{% for x in my_list %}
@@ -10,7 +12,7 @@
         <li>
             <!-- href to create dynami url, replaced by absolute url -->
             <!-- <a href='/articles/{{x.id}}/'>{{ x.title }}</a> -->
-            <!-- <a href='{% url "article-detail" slug=x.slug %}'>url to slug</a> -->
+            <!-- <a href='{% url "articles:detail" slug=x.slug %}'>url to slug</a> -->
             <a href='{{ x.get_absolute_url }}'>{{ x.title }}</a>
             <!-- <a href='{% url "article-create" %}'>create}</a> -->
             <p> content: {{ x.content }}</p>

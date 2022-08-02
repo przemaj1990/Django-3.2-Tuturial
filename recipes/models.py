@@ -3,6 +3,7 @@ from django.conf import settings
 from .validators import validate_unit
 from .utils import number_str_to_float
 import pint
+from django.urls import reverse
 # Create your models here.
 
 """
@@ -27,8 +28,8 @@ class Recipe(models.Model):
     active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return "/panty/recipies/"
-        # return reverse("recipes:detail", kwargs={"id": self.id})
+        # return "/panty/recipies/"
+        return reverse("recipes:detail", kwargs={"id": self.id})
 
 class RecipeIngredients(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)

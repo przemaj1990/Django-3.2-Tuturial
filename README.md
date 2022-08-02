@@ -331,4 +331,11 @@
 # 57 - CRUD Views for Recipe Model - Python & Django 3.2 Tutorial Series
     - CRUD - Create, Retrive, Update, Delete
     - get_object_or_404 - quick version to validate if we receive one object
-    - 
+
+# 58 - Django urls, includes, and app name - Python & Django 3.2 Tutorial Series
+    - url march the order they come in
+    - def get_absolute_url(self):
+        return reverse("recipes:detail", kwargs={"id": self.id})
+    - app_name='recipes' <- in urls.py of specific app
+    - path('library/recipes/', include('recipes.urls')), #allow to connect url from app to general url + way to reverse url
+

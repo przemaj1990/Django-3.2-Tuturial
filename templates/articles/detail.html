@@ -7,6 +7,9 @@
 
     <p1>Slug: {{object.slug}} </p1>
     <p1>Content: {{object.content}} </p1>
-    <p1>User: {{object.user}} {% if request.user == object.user %} This is You!{% endif %}</p1>
+    <p1>User: {{object.user}} 
+        {% if request.user == object.user %} This is You!
+        {% endif %}
+    </p1>
     
 {% endblock content %}
