@@ -339,3 +339,6 @@
     - app_name='recipes' <- in urls.py of specific app
     - path('library/recipes/', include('recipes.urls')), #allow to connect url from app to general url + way to reverse url
 
+# 59 - CRUD Templates for the Recipes App - Python & Django 3.2 Tutorial Series
+    - we can put template/recipies in each app and there will be template for them, but django will first look for main template dir
+    - 

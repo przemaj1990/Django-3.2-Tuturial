@@ -1,0 +1,15 @@
+{% extends "base-recipe.html" %}
+{% block content %}
+<h1>My Recipies:</h1>
+<a href='{% url "recipes:create" %}'>Add Recipies</a>
+
+<!-- base for iteration -->
+<ul>
+    {% for x in object_list %}
+    <li>
+{{ x.name }} {{x.id}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

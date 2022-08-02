@@ -13,7 +13,7 @@ app_name='articles'
 urlpatterns = [
     path('', article_search_view, name='search'),
     path('<int:id>/', article_detail_view),
-    path('slug/<slug:slug>/', article_detail_view_slug, name='detail'),
+    # path('slug/<slug:slug>/', article_detail_view_slug, name='detail'),
     path('create/', article_create_view),
     path('create2/', article_create_view2),
     path('create3/', article_create_view3),
