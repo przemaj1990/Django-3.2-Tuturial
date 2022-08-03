@@ -7,9 +7,14 @@
 
 <div style="margin-top:30px;">
     <form action="." method="POST">
-        <h3>Create Article</h3>
+        <h3>Create Recipe</h3>
         {% csrf_token %}
         {{ form.as_p }}
+
+        {% if form_2 %}
+        <h3>Ingredient:</h3>
+        {{ form_2.as_p }}
+        {% endif %}
         <div><button type='submit'>Save</button></div>
     </form>
 </div>

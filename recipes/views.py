@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Recipe, RecipeIngredients
 from django.contrib.auth.decorators import login_required
-from .forms import RecipeForm
+from .forms import RecipeForm, RecipeIngredientsForm
 # Create your views here.
 
 # CRUD -> Create, Retrive, Update, Delete
@@ -41,11 +41,23 @@ def recipe_update_view(request, id=None):
     obj = get_object_or_404(Recipe, id=id, user=request.user)
     # instance obj is fullfilling form with specific data(in this case data from specific obj we entered to edit)
     form = RecipeForm(request.POST or None, instance=obj)
+    form_2 = RecipeIngredientsForm(request.POST or None)
     context = {
         "form": form,
+        "form_2": form_2,
         "object": obj
     }
-    if form.is_valid():
-        form.save()
+    if all([form.is_valid(), form_2.is_valid()]):
+        # 2 sepearate form for recipes and ingredient
+        # form.save(commit=False)
+        # form_2.save(commit=False)
+        # print("form", form.cleaned_data)
+        
+        # how to save this 2 form together, not best way:
+        parent = form.save(commit=False)
+        parent.save()
+        child = form_2.save(commit=False)
+        child.recipe = parent
+        child.save()
         context['message'] = 'Data saved.'
     return render(request, "recipies/create-update.html", context)

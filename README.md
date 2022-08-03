@@ -342,4 +342,7 @@
 # 59 - CRUD Templates for the Recipes App - Python & Django 3.2 Tutorial Series
     - we can put template/recipies in each app and there will be template for them, but django will first look for main template dir
     - {% for ingredient in object.recipeingredients_set.all %} <- in jinja access related models
-    - 
+
+# 60 - Django 2 Forms, 1 View - Python & Django 3.2 Tutorial Series
+    - if all([form.is_valid(), form_2.is_valid()]): <- list to verify if both obj are valid, in one line :)
+    - print("form", form.cleaned_data) <- to print data in form or obj
