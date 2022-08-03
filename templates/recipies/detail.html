@@ -1,7 +1,20 @@
 {% extends "base-recipe.html" %}
 {% block content %}
 
+<!-- <h1>{{ object.name }}<small><a href='{% url "recipes:update" id=object.id %}'> edit</a></small></h1> -->
+<h1>{{ object.name }}<small><a href='{{ object.get_update_url }}'> edit</a></small></h1>
+<p> {{ object.description }}</p>
+<p> {{ object.directions }}</p>
 
+{% if object.recipeingredients_set.all %}
 
+<!--old:  for ingredient in object.recipeingredients_set.all  -->
+{% for ingredient in object.get_ingredient_children %}
+    <p>{{ ingredient.name }}</p>
+    <p>{{ ingredient.as_imperial }}</p>
+    <p>{{ ingredient.as_mks }}</p>
+{% endfor %}
+
+{% endif %}
 
 {% endblock content %}

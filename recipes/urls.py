@@ -10,6 +10,6 @@ app_name='recipes' # thanks to that we can use recipes:list in reverse call
 urlpatterns = [
     path("", recipe_list_view, name='list'),
     path("create/", recipe_create_view, name='create'),
-    path("<int:int>/update/", recipe_update_view, name='update'),
-    path("<int:int>/", recipe_detail_view, name='detail'),
+    path("<int:id>/update/", recipe_update_view, name='update'),
+    path("<int:id>/", recipe_detail_view, name='detail'),
 ]

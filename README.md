@@ -341,4 +341,5 @@
 
 # 59 - CRUD Templates for the Recipes App - Python & Django 3.2 Tutorial Series
     - we can put template/recipies in each app and there will be template for them, but django will first look for main template dir
+    - {% for ingredient in object.recipeingredients_set.all %} <- in jinja access related models
     - 

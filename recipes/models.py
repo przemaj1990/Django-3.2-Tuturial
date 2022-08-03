@@ -31,6 +31,12 @@ class Recipe(models.Model):
         # return "/panty/recipies/"
         return reverse("recipes:detail", kwargs={"id": self.id})
 
+    def get_update_url(self):
+        return reverse("recipes:update", kwargs={"id": self.id})
+
+    def get_ingredient_children(self):
+        return self.recipeingredients_set.all()
+
 class RecipeIngredients(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     name = models.CharField(max_length=270)

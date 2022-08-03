@@ -5,6 +5,7 @@ from .forms import RecipeForm
 # Create your views here.
 
 # CRUD -> Create, Retrive, Update, Delete
+# Function Base View:
 
 @login_required
 def recipe_list_view(request, id=None):
@@ -38,6 +39,7 @@ def recipe_create_view(request):
 @login_required
 def recipe_update_view(request, id=None):
     obj = get_object_or_404(Recipe, id=id, user=request.user)
+    # instance obj is fullfilling form with specific data(in this case data from specific obj we entered to edit)
     form = RecipeForm(request.POST or None, instance=obj)
     context = {
         "form": form,

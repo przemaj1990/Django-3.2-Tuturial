@@ -7,7 +7,9 @@
 <ul>
     {% for x in object_list %}
     <li>
-{{ x.name }} {{x.id}}
+        <!-- {{ x.name }} {{x.id}} {{ x.get_absolute_url}} -->
+        <!-- <a href='/library/recipes/{{x.id}}/'>{{ x.name }}</a> -->
+        <a href='{{ x.get_absolute_url }}'>{{ x.name }}</a> -->
     </li>
     {% endfor %}
 </ul>
