@@ -346,3 +346,7 @@
 # 60 - Django 2 Forms, 1 View - Python & Django 3.2 Tutorial Series
     - if all([form.is_valid(), form_2.is_valid()]): <- list to verify if both obj are valid, in one line :)
     - print("form", form.cleaned_data) <- to print data in form or obj
+
+# 61 - Manage QuerySets with Django Formsets + modelformset factory - Python & Django Tutorial Series
+    - we can use modeformset to combaine 2 form together.
+    - 
