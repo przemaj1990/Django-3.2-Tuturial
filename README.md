@@ -349,4 +349,16 @@
 
 # 61 - Manage QuerySets with Django Formsets + modelformset factory - Python & Django Tutorial Series
     - we can use modeformset to combaine 2 form together.
-    - 
+
+# 62 - Customizing Form Fields, Widgets, Placeholders, & CSS - Python & Django 3.2 Tutorial Series
+    - we can add css class to fileds added automatically using form.py class
+    - in effect the frontend will be easy
+    required_css_class = 'required-filed'
+    - other way to pass class:
+    name = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "your own placeholder"}))
+    - other method is using __init__ class and add like:
+    def __init__(self, *args, **kwargs):
+        # call main function
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({"class": "form-control2"})
+    - alternativly to trying do this manually we can use django-crispy-forms
