@@ -6,7 +6,7 @@ class RecipeForm(forms.ModelForm):
     # in effect the frontend will be easy
     required_css_class = 'required-filed'
     error_css_class = 'error-filed'
-    # name = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "your own placeholder"}))
+    name = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "your own placeholder"}), help_text="help_text_for_name <a href='/contact/'>Contact us!</a>")
     # description = forms.CharField(widget=forms.Textarea(attrs={"rows": 3}))
     class Meta:
         model = Recipe

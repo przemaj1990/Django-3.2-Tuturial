@@ -362,3 +362,8 @@
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({"class": "form-control2"})
     - alternativly to trying do this manually we can use django-crispy-forms
+
+# 63 - Rendering Form Fields & More in Templates - Python & Django 3.2 Tutorial Series
+    - help_text - help with condition and explain each of fileds
+    - safe: {{ field.help_test|safe }} <- safe is template filter, this allow links here
+    - {{ formset.management_form }} <- tells djnago about this formset
