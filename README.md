@@ -367,3 +367,8 @@
     - help_text - help with condition and explain each of fileds
     - safe: {{ field.help_test|safe }} <- safe is template filter, this allow links here
     - {{ formset.management_form }} <- tells djnago about this formset
+
+# 64 - Dynamic New Forms in a Django Formset via JavaScript - Python & Django 3.2 Tutorial Series
+    - add new form elements using JS ( to be able to add multiple Ingredient to one recipe in one form)
+    - we can updarw 'extra=0' in form as well and effect will be similar
+    - <button id="add-more" type="button">Add more</button> type of button prevent submit of form

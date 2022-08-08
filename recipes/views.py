@@ -92,7 +92,7 @@ def recipe_update_view_old2(request, id=None):
 
 # view using modelformset_factory agregate main obj and correlated object related by ForeignKey
 @login_required
-def recipe_update_view(request, id=None):
+def recipe_update_view_old3(request, id=None):
     obj = get_object_or_404(Recipe, id=id, user=request.user)
     # instance obj is fullfilling form with specific data(in this case data from specific obj we entered to edit)
     form = RecipeForm(request.POST or None, instance=obj)
@@ -112,6 +112,32 @@ def recipe_update_view(request, id=None):
             child = form.save(commit=False)
             if child.recipe is None:
                 child.recipe = parent
+            child.save()
+        context['message'] = 'Data saved.'
+    return render(request, "recipies/create-update.html", context)
+
+@login_required
+def recipe_update_view(request, id=None):
+    obj = get_object_or_404(Recipe, id=id, user=request.user)
+    # instance obj is fullfilling form with specific data(in this case data from specific obj we entered to edit)
+    form = RecipeForm(request.POST or None, instance=obj)
+    # Formset = modelformset_factory(Model, form=ModelForm, extra=0)
+    qs = obj.recipeingredients_set.all()
+    RecipeIngredientsFormset = modelformset_factory(RecipeIngredients, form=RecipeIngredientsForm, extra=0)
+    formset = RecipeIngredientsFormset(request.POST or None, queryset=qs)
+    context = {
+        "form": form,
+        "formset": formset,
+        "object": obj
+    }
+    if request.method == "POST":
+         print(request.POST)
+    if all([form.is_valid(), formset.is_valid()]):
+        parent = form.save(commit=False)
+        parent.save()
+        for form in formset:
+            child = form.save(commit=False)
+            child.recipe = parent
             child.save()
         context['message'] = 'Data saved.'
     return render(request, "recipies/create-update.html", context)
