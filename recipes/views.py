@@ -130,8 +130,8 @@ def recipe_update_view(request, id=None):
         "formset": formset,
         "object": obj
     }
-    if request.method == "POST":
-         print(request.POST)
+    # if request.method == "POST":
+    #      print(request.POST)
     if all([form.is_valid(), formset.is_valid()]):
         parent = form.save(commit=False)
         parent.save()
@@ -140,4 +140,7 @@ def recipe_update_view(request, id=None):
             child.recipe = parent
             child.save()
         context['message'] = 'Data saved.'
+    #for htmx:
+    if request.htmx:
+        return render(request, "recipies/partials/form.html", context)
     return render(request, "recipies/create-update.html", context)

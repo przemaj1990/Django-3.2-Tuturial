@@ -372,3 +372,9 @@
     - add new form elements using JS ( to be able to add multiple Ingredient to one recipe in one form)
     - we can updarw 'extra=0' in form as well and effect will be similar
     - <button id="add-more" type="button">Add more</button> type of button prevent submit of form
+
+# 65 - Dynamic New Forms in Django Formset via HTMX - Python & Django 3.2 Tutorial Series
+    - https://htmx.org/
+    <form action="." method="POST" hx-post="."> <- tell post method to send url to ".", so combine 2 privious entry
+    - hx-swap='outerHTML' - to prevent nesting the same form over and over again
+    - 
