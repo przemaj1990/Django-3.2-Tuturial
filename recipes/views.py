@@ -3,6 +3,9 @@ from .models import Recipe, RecipeIngredients
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm, RecipeIngredientsForm
 from django.forms.models import modelformset_factory
+from django.http import HttpResponse, Http404
+from django.urls import reverse
+
 # Create your views here.
 
 # CRUD -> Create, Retrive, Update, Delete
@@ -17,12 +20,35 @@ def recipe_list_view(request, id=None):
     return render(request, "recipies/list.html", context)
 
 @login_required
-def recipe_detail_view(request, id=None):
+def recipe_detail_view_old(request, id=None):
     obj = get_object_or_404(Recipe, id=id, user=request.user)
     context = {
         "object": obj
     }
     return render(request, "recipies/detail.html", context)
+
+@login_required
+def recipe_detail_view(request, id=None):
+    hx_url = reverse("recipes:hx-detail", kwargs={"id": self.id})
+    obj = get_object_or_404(Recipe, id=id, user=request.user)
+    context = {
+        "hx_url": hx_url
+    }
+    return render(request, "recipies/detail.html", context)
+
+
+@login_required
+def recipe_detail_htmx_view(request, id=None):
+    try:
+        obj = Recipe.objects.get(id=id, user=request.user)
+    except:
+        obj = None
+    if obj is None:
+        return HttpResponse("Not Found")
+    context = {
+        "object": obj
+    }
+    return render(request, "recipies/partials/detail.html", context)
 
 @login_required
 def recipe_create_view(request):

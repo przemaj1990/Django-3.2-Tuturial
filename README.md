@@ -377,4 +377,12 @@
     - https://htmx.org/
     <form action="." method="POST" hx-post="."> <- tell post method to send url to ".", so combine 2 privious entry
     - hx-swap='outerHTML' - to prevent nesting the same form over and over again
-    - 
+
+# 66 - HTMX, JavaScript & Django Fixtures - Python & Django 3.2 Tutorial Series
+    - htmx alow to generate dynamic content for web application
+    python3.8 manage.py dumpdata recipes
+    python3.8 manage.py dumpdata recipes --indent 4
+    python3.8 manage.py dumpdata recipes --indent 4 > fixtures/recipes.json
+
+# 67 - HMTX & JavaScript Working Together - Python & Django 3.2 Tutorial Series
+

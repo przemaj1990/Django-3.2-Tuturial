@@ -31,6 +31,9 @@ class Recipe(models.Model):
         # return "/panty/recipies/"
         return reverse("recipes:detail", kwargs={"id": self.id})
 
+    def get_hx_url(self):
+        return reverse("recipes:hx-detail", kwargs={"id": self.id})
+
     def get_update_url(self):
         return reverse("recipes:update", kwargs={"id": self.id})
 
@@ -57,7 +60,7 @@ class RecipeIngredients(models.Model):
             return None
         ureg = pint.UnitRegistry(system=system)
         measurement = self.quantity_as_float * ureg[self.unit]
-        print(measurement)
+        # print(measurement)
          #.to_base_units() <- change value to desired one specifiec in 'system'
         return measurement #.to_base_units()
 
