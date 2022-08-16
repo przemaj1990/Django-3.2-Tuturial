@@ -29,7 +29,7 @@ def recipe_detail_view_old(request, id=None):
 
 @login_required
 def recipe_detail_view(request, id=None):
-    hx_url = reverse("recipes:hx-detail", kwargs={"id": self.id})
+    hx_url = reverse("recipes:hx-detail", kwargs={"id": id})
     obj = get_object_or_404(Recipe, id=id, user=request.user)
     context = {
         "hx_url": hx_url
@@ -57,10 +57,19 @@ def recipe_create_view(request):
         "form": form
     }
     if form.is_valid():
-        obj = form.save(comit=False)
+        obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-        return redirect(obj.get_absolute_url)
+        if request.htmx:
+            headers = {
+                "HX-Redirect": obj.get_absolute_url()
+            }
+            return HttpResponse('Created', headers=headers)
+            # context = {
+            #     "object": obj
+            # }
+            # return render(request, "recipies/partials/detail.html", context)
+        return redirect(obj.get_absolute_url())
     return render(request, "recipies/create-update.html", context)
 
 # old for reference

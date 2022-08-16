@@ -395,3 +395,9 @@
                  'hx-target': '#recipe-container',
                  'hx-swap': 'outerHTML'
     
+# 70 - HTMX Response Header - Python & Django 3.2 Tutorial Series
+    - redirect using haders and htmx:
+            headers = {
+                "HX-Redirect": obj.get_absolute_url()
+            }
+            return HttpResponse('Created', headers=headers)
