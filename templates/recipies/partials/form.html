@@ -1,4 +1,5 @@
-<form action="." method="POST" hx-post='.' hx-swap='outerHTML'>
+<div id="recipe-container">
+<form action="." method="POST" hx-post='.' hx-swap='outerHTML' hx-trigger='submit'>
     <h3>Create Recipe</h3>
     {% csrf_token %}
     <!-- {{ form.as_p }} -->
@@ -33,3 +34,4 @@
     <div class="htmx-indicator">Loading...</div>
     <div><button class="htmx-inverted-indicator"type='submit'>Save</button></div>
 </form>
+</div>

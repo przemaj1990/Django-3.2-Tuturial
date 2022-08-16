@@ -20,7 +20,11 @@ class RecipeForm(forms.ModelForm):
             print(filed)
             new_data = {
                 "placeholder": f'recipe-{str(filed)}',
-                'class': 'form-control'
+                'class': 'form-control',
+                # 'hx-post': '.',
+                # 'hx-trigger': 'keyup changed delay:1500ms',
+                # 'hx-target': '#recipe-container',
+                # 'hx-swap': 'outerHTML'
             }
             self.fields[str(filed)].widget.attrs.update(new_data)
         # way of chaning filed using init:

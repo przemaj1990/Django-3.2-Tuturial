@@ -386,3 +386,12 @@
 
 # 67 - HMTX & JavaScript Working Together - Python & Django 3.2 Tutorial Series
 
+# 69 - Auto Save with HTMX & Django - Python & Django 3.2 Tutorial Series
+    - user dont have to pres save:
+    hx-trigger='change delay:500ms'
+    - autotriger in forms.py:
+                 'hx-post': '.',
+                 'hx-trigger': 'keyup changed delay:1500ms',
+                 'hx-target': '#recipe-container',
+                 'hx-swap': 'outerHTML'
+    
