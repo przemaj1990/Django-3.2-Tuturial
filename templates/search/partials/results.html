@@ -1,0 +1,5 @@
+{% for objects in queryset %}
+    <li><a href="{{ objects.get_absolute_utl }}">{{ objects.name }}</a></li>
+    {% empty %}
+    <li>No results found</li>
+{% endfor %}

@@ -32,6 +32,8 @@ from accounts.views import (
     register_view,
     )
 
+from search.views import search_view
+
 urlpatterns = [
     #base work:
     path('', list_data2), #usefull to have this home page
@@ -53,6 +55,7 @@ urlpatterns = [
     # path('articles/create3/', article_create_view3),
     # path('articles/create4/', article_create_view4, name='article-create'),
     #login mechanism:
+    path('search/', search_view, name='search'),
     path('login_old/', login_view_old),
     path('login/', login_view),
     path('logout/', logout_view),

@@ -401,3 +401,7 @@
                 "HX-Redirect": obj.get_absolute_url()
             }
             return HttpResponse('Created', headers=headers)
+
+# 71 - HTMX Typeahead & Search in Django - Python & Django 3.2 Tutorial Series
+    python3.8 manage.py startapp search
+    
