@@ -404,4 +404,4 @@
 
 # 71 - HTMX Typeahead & Search in Django - Python & Django 3.2 Tutorial Series
     python3.8 manage.py startapp search
-    
+    https://www.youtube.com/watch?v=ggo4Vt1lbgA&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL&index=71 5:53
